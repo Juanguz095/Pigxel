@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reto 1 — GranjaChanchito</title>
+  <!-- MONACO EDITOR (VS CODE en la web) -->
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.js"></script>
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/ejercicios.css">
+  <!-- TU CSS EXACTO -->
+</head>
+<body>
+<header class="barra-superior">
+  <nav class="menu-izquierda">
+    <a class="header-puntos">PUNTOS: 0</a>
+
+    <a>APRENDER</a>
+    <a style="text-align: center;">LOGROS</a>
+  </nav>
+  <div class="menu-logo">🐷 Pigxel Studio</div>
+  <nav class="menu-derecha">
+    <div class="selector activo">SOBRE NOSOTROS</div>
+    <button class="btn-sesion" id="btn-usuario">INICIAR SESIÓN</button>
+  </nav>
+</header>
+
+<div class="contenedor-reto">
+  
+  <!-- 📌 PANEL IZQUIERDO -->
+  <div class="panel-instrucciones">
+    <span class="tag-medio">MEDIO</span>
+
+    <h2>Reto 1: Filtrar regalos defectuosos 🐷🎁</h2>
+
+    <p>
+      En la <strong>GranjaChanchito</strong>, el granjero dejó una caja llena de regalos 
+      para los animalitos del corral. Entre pelotas, carritos y muñecos, algunos 
+      llegaron dañados porque fueron marcados por el cuervo travieso con el símbolo 
+      <code>#</code>.
+    </p>
+
+    <p>
+      Tu misión es ayudar al chanchito encargado del inventario a separar los regalos 
+      buenos de los defectuosos. Si un regalo contiene el carácter <code>#</code>, 
+      significa que está roto o incompleto y no debe entregarse.
+    </p>
+
+    <p>
+      Escribe una función que reciba una lista de regalos y devuelva una nueva lista 
+      con solo los que están en perfecto estado. El chanchito confía en ti…  
+      ¡no dejes que un regalo roto arruine la Navidad!
+    </p>
+
+<pre>
+Ejemplo:
+resolver(["car", "ball", "doll#arm"])
+→ ["car", "ball"]
+</pre>
+<!-- 🎯 BLOQUE DE PISTAS (correctamente colocado) -->
+  <div class="bloque-ayuda" style="margin-top: 10px; margin-bottom: 20px;">
+
+    <button class="btn-pista" onclick="mostrarPista('pista1')">❓ Pista 1</button>
+    <div id="pista1" class="pista-oculta" style="display:none; margin-top:5px;">
+      Intenta usar <strong>filter()</strong> para quedarte solo con los regalos buenos.
+    </div>
+
+    <button class="btn-pista" onclick="mostrarPista('pista2')" style="margin-top:10px;">💡 Pista 2</button>
+    <div id="pista2" class="pista-oculta" style="display:none; margin-top:5px;">
+      Recuerda que un regalo es defectuoso si <strong>incluye "#"</strong>.<br>
+      Puedes verificarlo con: <code>texto.includes("#")</code>.
+    </div>
+
+    <button class="btn-pista" onclick="mostrarPista('explicacion')" style="margin-top:10px;">🧠 Explicación técnica</button>
+    <div id="explicacion" class="pista-oculta" style="display:none; margin-top:5px;">
+      <code>filter()</code> permite crear un nuevo arreglo con los elementos que
+      cumplan una condición. Si queremos solo los regalos buenos, filtramos aquellos
+      que <strong>NO incluyan "#"</strong>.
+    </div>
+
+  </div>
+  <!-- 🎯 FIN DEL BLOQUE DE PISTAS -->
+
+<button class="btn-ver-solucion" onclick="toggleSolucion()">VER SOLUCIÓN</button>
+
+<pre id="solucionOficialPanel" style="display: none;">
+// Solución oficial
+function resolver(regalos) {
+  return regalos.filter(g => !g.includes("#"));
+}
+</pre>
+  </div>
+
+  <!-- 📌 PANEL DERECHA -->
+  <div class="panel-codigo">
+    <div class="tabs">
+      <div class="activo">main.js</div>
+    </div>
+
+<div id="editor" style="flex: 1; width: 100%;"></div>
+
+
+    <button class="btn-enviar" onclick="ejecutar()">ENVIAR SOLUCIÓN</button>
+
+    <div class="resultado" id="resultado">Resultado aparecerá aquí...</div>
+  </div>
+
+</div>
+<!-- MODAL DE ÉXITO -->
+<div id="modal-exito" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+">
+  <div style="
+    background: #f8e7c5;
+    color: #000;
+    padding: 25px;
+    border: 4px solid #3b0c0c;
+    width: 320px;
+    text-align: center;
+    font-family: 'Press Start 2P';
+  ">
+    <h3 style="margin-bottom: 15px;">¡Reto superado!</h3>
+    <p>Todos los tests pasaron correctamente.</p>
+    <button onclick="cerrarModal()" style="
+      background: #3ca0ff;
+      border: 3px solid #1d4c73;
+      padding: 10px 15px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-family: 'Press Start 2P';
+    ">CERRAR</button>
+  </div>
+</div>
+
+
+<!-- MODAL LOGIN / REGISTRO -->
+<div id="modal-login" class="modal-login">
+  <div class="login-box">
+
+    <div class="cerrar" id="cerrar-login">✖</div>
+
+    <h2 id="titulo-login">Iniciar Sesión</h2>
+
+    <!-- LOGIN -->
+    <div id="form-login">
+      <input type="text" id="login-user" placeholder="Usuario">
+      <input type="password" id="login-pass" placeholder="Contraseña">
+
+      <button class="btn-login" id="btn-login">Entrar</button>
+
+      <p class="cambio" id="ir-registro">
+        ¿No tienes cuenta? Regístrate
+      </p>
+    </div>
+
+    <!-- REGISTRO -->
+    <div id="form-registro" style="display:none;">
+      <input type="text" id="reg-user" placeholder="Nuevo usuario">
+      <input type="password" id="reg-pass" placeholder="Nueva contraseña">
+
+      <button class="btn-login" id="btn-registrar">Crear Cuenta</button>
+
+      <p class="cambio" id="ir-login">
+        ¿Ya tienes cuenta? Inicia Sesión
+      </p>
+    </div>
+
+  </div>
+</div>
+<script>
+  require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs' } });
+
+let editor;
+
+require(["vs/editor/editor.main"], function () {
+
+  editor = monaco.editor.create(document.getElementById("editor"), {
+    value: `// Escribe tu función aquí 👇
+
+function resolver(regalos) {
+  // tu código...
+  return ;
+}
+`,
+    language: "javascript",
+    theme: "vs-dark",
+    fontSize: 12,
+    minimap: { enabled: false },
+    smoothScrolling: true,
+    automaticLayout: true
+  });
+
+});  
+  // Solución oficial del reto
+  function solucionOficial(lista) {
+    return lista.filter(g => !g.includes("#"));
+  }
+
+  // Tests del reto
+  const tests = [
+    ["car", "ball", "doll#arm"],
+    ["#broken", "train", "rusty"]
+  ];
+
+  const esperados = [
+    ["car", "ball"],
+    ["train", "rusty"]
+  ];
+
+function toggleSolucion() {
+  const sol = document.getElementById("solucionOficialPanel");
+  sol.style.display = sol.style.display === "none" ? "block" : "none";
+}
+function mostrarModal() {
+  document.getElementById("modal-exito").style.display = "flex";
+}
+
+function cerrarModal() {
+  document.getElementById("modal-exito").style.display = "none";
+}
+
+</script>
+<script>
+function mostrarPista(id) {
+  const pista = document.getElementById(id)
+
+  if (pista.style.display === 'block') {
+    pista.style.display = 'none'
+  } else {
+    pista.style.display = 'block'
+    pista.classList.remove("aparecer")  // reset animación
+    void pista.offsetWidth               // truco para reiniciar animación
+    pista.classList.add("aparecer")
+  }
+}
+/* ============================================================
+   SISTEMA DE PUNTOS PARA ESTE RETO (reto1)
+   — Solo suma si el usuario está logueado
+   — No vuelve a sumar si ya completó el reto
+   ============================================================ */
+
+// ID único del reto
+const ID_RETO = "reto1";
+
+// dificultad del reto
+const DIFICULTAD_RETO = "MEDIO"; // FACIL | MEDIO | DIFICIL
+
+// ===== COMPROBAR LOGIN =====
+function usuarioEstaLogueado() {
+  return localStorage.getItem("usuarioLogueado") === "true";
+}
+
+// ===== CALCULAR PUNTOS POR NIVEL =====
+function puntosPorNivel(nivel) {
+  switch (nivel) {
+    case "FACIL": return 5;
+    case "MEDIO": return 10;
+    case "DIFICIL": return 20;
+    default: return 0;
+  }
+}
+
+// ===== OBTENER Y GUARDAR PUNTOS =====
+function obtenerPuntos() {
+  return Number(localStorage.getItem("puntos")) || 0;
+}
+
+function guardarPuntos(valor) {
+  localStorage.setItem("puntos", valor);
+}
+
+
+
+// ===== VERIFICAR SI EL RETO YA SE HIZO =====
+function retoYaCompletado(id) {
+  return localStorage.getItem("reto_" + id) === "completado";
+}
+
+function marcarRetoComoCompletado(id) {
+  localStorage.setItem("reto_" + id, "completado");
+}
+
+// ===== ACTUALIZAR PUNTOS EN EL HEADER =====
+function actualizarHeaderPuntos() {
+  const puntosUI = document.getElementById("header-puntos");
+
+  const puntos = obtenerPuntos();
+
+  if (puntosUI) {
+    puntosUI.textContent = `PUNTOS: ${puntos}`;
+  }
+}
+document.addEventListener("DOMContentLoaded", actualizarHeaderPuntos);
+
+
+// ============================================================
+// INTEGRACIÓN CON LA FUNCIÓN ejecutar()
+// ============================================================
+
+function ejecutar() {
+  const codigo = editor.getValue();
+  const divResultado = document.getElementById("resultado");
+  divResultado.textContent = "";
+
+  try {
+    eval(codigo);
+
+    let salida = "";
+    let todosBien = true;
+
+    tests.forEach((test, i) => {
+      const usuario = resolver([...test]);
+      const ok = JSON.stringify(usuario) === JSON.stringify(esperados[i]);
+
+      if (!ok) todosBien = false;
+
+      salida += 
+`► Test ${i+1}
+Entrada: ${JSON.stringify(test)}
+Tu salida: ${JSON.stringify(usuario)}
+Esperado: ${JSON.stringify(esperados[i])}
+Estado: ${ok ? "✔ APROBADO" : "✘ FALLÓ"}
+
+`;
+    });
+
+    divResultado.textContent = salida;
+
+    // -------------------------------------------
+    //     🎉 SI TODO BIEN → DAR PUNTOS
+    // -------------------------------------------
+    if (todosBien) {
+
+      // Mostrar modal de éxito
+      mostrarModal();
+
+      // SOLO SI EL USUARIO ESTÁ LOGUEADO
+      if (!usuarioEstaLogueado()) {
+        console.warn("No se suman puntos porque NO está logueado.");
+        return;
+      }
+
+      // NO SI YA LO COMPLETÓ ANTES
+      if (retoYaCompletado(ID_RETO)) {
+        console.warn("El reto ya fue completado antes, no se suman puntos.");
+        return;
+      }
+
+      // SUMAR PUNTOS
+      const puntosActuales = obtenerPuntos();
+      const puntosGanados = puntosPorNivel(DIFICULTAD_RETO);
+      guardarPuntos(puntosActuales + puntosGanados);
+
+      // Marcar reto como completado
+      marcarRetoComoCompletado(ID_RETO);
+
+      // Actualizar header
+      actualizarHeaderPuntos();
+    }
+
+  } catch (err) {
+    divResultado.innerHTML = "❌ ERROR: " + err;
+  }
+}
+
+</script>
+<script>
+
+// ============================
+// SISTEMA LOGIN / REGISTRO
+// ============================
+document.addEventListener("DOMContentLoaded", () => {
+
+  const modal = document.getElementById("modal-login");
+  const btnSesion = document.getElementById("btn-usuario");
+  const btnCerrar = document.getElementById("cerrar-login");
+
+  const formLogin = document.getElementById("form-login");
+  const formRegistro = document.getElementById("form-registro");
+
+  const btnLogin = document.getElementById("btn-login");
+  const btnRegistrar = document.getElementById("btn-registrar");
+
+  const irRegistro = document.getElementById("ir-registro");
+  const irLogin = document.getElementById("ir-login");
+
+  const puntosUI = document.querySelector(".header-puntos");
+
+
+  // ---- Cargar sesión ----
+  function cargarSesion() {
+    const usuario = localStorage.getItem("usuario");
+    const puntos = localStorage.getItem("puntos") || 0;
+
+    puntosUI.textContent = `PUNTOS: ${puntos}`;
+    btnSesion.textContent = usuario ? usuario + " 🐷" : "INICIAR SESIÓN";
+    if (localStorage.getItem("usuarioLogueado") === "true") {
+    btnSesion.textContent = localStorage.getItem("usuario") + " 🐷";
+}
+
+  }
+
+  cargarSesion();
+
+
+  // ---- Abrir modal ----
+  btnSesion.addEventListener("click", () => {
+    modal.style.display = "flex";
+  });
+
+  // ---- Cerrar modal ----
+  btnCerrar.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // ---- Cambiar a registro ----
+  irRegistro.addEventListener("click", () => {
+    formLogin.style.display = "none";
+    formRegistro.style.display = "block";
+    document.getElementById("titulo-login").textContent = "Registrarse";
+  });
+
+
+  // ---- Volver login ----
+  irLogin.addEventListener("click", () => {
+    formLogin.style.display = "block";
+    formRegistro.style.display = "none";
+    document.getElementById("titulo-login").textContent = "Iniciar Sesión";
+  });
+
+  // ---- Registrar ----
+  btnRegistrar.addEventListener("click", () => {
+    const u = document.getElementById("reg-user").value.trim();
+    const p = document.getElementById("reg-pass").value.trim();
+
+    if (!u || !p) return alert("Completa todos los campos");
+
+    localStorage.setItem("usuario", u);
+    localStorage.setItem("password", p);
+    localStorage.setItem("puntos", 0);
+
+    alert("Cuenta creada 🎉");
+    irLogin.click(); // volver a login
+  });
+
+  // ---- Iniciar sesión ----
+  btnLogin.addEventListener("click", () => {
+    const u = document.getElementById("login-user").value.trim();
+    const p = document.getElementById("login-pass").value.trim();
+
+    if (u === localStorage.getItem("usuario") &&
+        p === localStorage.getItem("password")) {
+
+      alert("Sesión iniciada 🐷✨");
+      localStorage.setItem("usuarioLogueado", "true");
+      modal.style.display = "none";
+      cargarSesion();
+
+    } else {
+      alert("Usuario o contraseña incorrectos");
+    }
+  });
+
+});
+
+</script>
+
+
+</body>
+</html>

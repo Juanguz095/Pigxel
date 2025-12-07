@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Nosotros – GranjaChanchito</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="css/header.css">
+  <style>
+    /* --- Estilos específicos de esta página mejorados --- */
+
+.contenedor-info {
+  max-width: 950px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  animation: aparecer 1s ease-out;
+}
+
+/* BLOQUES PRINCIPALES (historia, misión, visión, equipo) */
+.bloque {
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  border: 3px solid #000;
+  padding: 30px;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+
+  box-shadow: 0px 0px 0px 0px #000, 
+              4px 4px 0px #000, 
+              6px 6px 0px #ea638c; /* toque rosado retro */
+
+  position: relative;
+  overflow: hidden;
+
+  animation: subir 0.8s ease-out, brillo 3s infinite ease-in-out;
+  transition: transform 0.25s ease;
+}
+
+.bloque:hover {
+  transform: scale(1.02);
+}
+
+/* Decoración retro detrás */
+.bloque::after {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 20px;
+  top: 0;
+  left: -20%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 6px,
+    rgba(255,255,255,0.06) 7px,
+    rgba(255,255,255,0.06) 14px
+  );
+  opacity: 0.4;
+  animation: deslizar 6s linear infinite;
+}
+
+/* GRID DEL EQUIPO */
+.equipo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  animation: aparecer 1.3s ease-out;
+}
+
+/* TARJETA DE MIEMBRO */
+.miembro {
+  background: rgba(255,255,255,0.05);
+  border: 3px solid #000;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+
+  box-shadow: 0px 0px 0px 0px #000,
+              3px 3px 0px #000,
+              5px 5px 0px #77b255; /* verde granja */
+
+  animation: subir 1.4s ease-out;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.miembro:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+/* IMAGENES PIXEL */
+.miembro img {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #000;
+  background: #222;
+  border-radius: 4px;
+  image-rendering: pixelated;
+
+  box-shadow: inset 0 0 0 3px #000;
+}
+
+/* TEXTOS */
+.miembro h3 {
+  margin-top: 12px;
+  font-size: 15px;
+  text-shadow: 2px 2px #000;
+  font-weight: bold;
+}
+
+.miembro p {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* ANIMACIONES */
+@keyframes subir {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aparecer {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes deslizar {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-200px); }
+}
+
+@keyframes brillo {
+  0%, 100% { box-shadow: 4px 4px 0px #000, 6px 6px 0px #ea638c; }
+  50%      { box-shadow: 4px 4px 0px #000, 6px 6px 0px #ffb3d1; }
+}
+
+  </style>
+</head>
+
+<body>
+
+<header class="barra-superior">
+  <nav class="menu-izquierda">
+    <a>PUNTOS: 0</a>
+    <a>APRENDER</a>
+    <a>LOGROS</a>
+  </nav>
+
+  <div class="menu-logo">🐷 Pigxel Studio</div>
+
+  <nav class="menu-derecha">
+    <div class="selector activo">SOBRE NOSOTROS</div>
+    <button class="btn-sesion">INICIAR SESIÓN</button>
+  </nav>
+</header>
+
+
+
+<section class="hero">
+  <h1>SOBRE NOSOTROS</h1>
+  <p>Conoce al equipo detrás de la granja 🐷🌾</p>
+</section>
+
+
+
+<section class="contenedor-info">
+
+  <div class="bloque">
+    <h2>🐷 Nuestra Historia</h2>
+    <p>
+      GranjaChanchito nació como una pequeña idea entre amigos apasionados por 
+      la programación, el diseño retro y el aprendizaje divertido.
+      Queríamos crear un espacio donde las personas pudieran mejorar sus habilidades 
+      mediante retos, humor, y estética pixel.
+    </p>
+  </div>
+
+  <div class="bloque">
+    <h2>🌽 Nuestra Misión</h2>
+    <p>
+      Inspirar a nuevos programadores a aprender jugando, explorar, fallar,
+      reintentar y crecer, igual que un chanchito aprendiendo a cultivar su propia granja.
+    </p>
+  </div>
+
+  <div class="bloque">
+    <h2>🌾 Nuestra Visión</h2>
+    <p>
+      Convertirnos en una plataforma educativa completa donde la gamificación
+      y el estilo retro se unan para ofrecer la mejor experiencia de aprendizaje digital.
+    </p>
+  </div>
+
+  <div class="bloque">
+    <h2>🐮 El Equipo</h2>
+
+    <div class="equipo">
+      <div class="miembro">
+        <img src="https://i.imgur.com/Np8I8Dp.png" alt="">
+        <h3>Juan — Fundador</h3>
+        <p>Programación, diseño y estrategia de la granja.</p>
+      </div>
+
+      <div class="miembro">
+        <img src="https://i.imgur.com/Np8I8Dp.png" alt="">
+        <h3>Ale — Diseñadora</h3>
+        <p>Pixel art, interfaz retro y estética arcade.</p>
+      </div>
+
+      <div class="miembro">
+        <img src="https://i.imgur.com/Np8I8Dp.png" alt="">
+        <h3>Marco — Dev</h3>
+        <p>Desarrollo de retos y sistemas internos.</p>
+      </div>
+
+      <div class="miembro">
+        <img src="https://i.imgur.com/Np8I8Dp.png" alt="">
+        <h3>Lucía — Escritora</h3>
+        <p>Textos, diálogos y narrativa de la granja.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>

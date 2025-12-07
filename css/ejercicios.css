@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+:root {
+  --rosa: #ff00a0;
+  --naranja: #ffb17a;
+  --vino: #a04668;
+  --fondo: linear-gradient(#ffb17a, #a04668);
+  --texto-oscuro: #1a0f15;
+  --facil: #00ff8c;
+  --medio: #ffe247;
+  --dificil: #ff4f4f;
+}
+body {
+  margin: 0;
+  background: var(--fondo);
+  font-family: "Press Start 2P", cursive;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.btn-sesion {
+  background: #e8dbb0;
+  height: 48px;
+  padding: 0 20px;
+  cursor: pointer;
+  border-left: 1px solid #8f1e1e;
+  border-right: 1px solid #8f1e1e;
+  font-family: "Press Start 2P";
+}
+
+.contenedor-reto {
+  display: flex;
+  height: calc(100vh - 48px);
+}
+
+.panel-instrucciones {
+  width: 45%;
+  background: var(--fondo);
+  border-right: 3px solid var(--texto-oscuro);
+  color: #000;
+  padding: 20px;
+  overflow-y: auto;
+  font-size: 11px;
+}
+.panel-instrucciones pre {
+  background: #1d1d1d;
+  color: #f8e7c5;
+  padding: 12px;
+  font-size: 10px;
+  overflow-x: auto;
+}
+.tag-facil {
+  background: var(--facil);
+  padding: 3px 6px;
+  color: #000;
+  font-size: 10px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+.tag-medio {
+  background: var(--medio);
+  padding: 3px 6px;
+  color: #000;
+  font-size: 10px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+.tag-dificil {
+  background: var(--facil);
+  padding: 3px 6px;
+  color: #000;
+  font-size: 10px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.panel-codigo {
+  width: 55%;
+  background: #0d1416;
+  border-left: 3px solid var(--texto-oscuro);
+  display: flex;
+  flex-direction: column;
+}
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--texto-oscuro);
+}
+.tabs div {
+  padding: 10px 18px;
+  cursor: pointer;
+  border-right: 2px solid var(--texto-oscuro);
+}
+.tabs .activo {
+  background: #162024;
+}
+textarea#editor {
+  flex: 1;
+  width: 100%;
+  background: #0d1416;
+  color: #0f0;
+  border: none;
+  font-family: monospace;
+  font-size: 12px;
+  padding: 20px;
+  resize: none;
+}
+
+.resultado {
+  background: #1d1d1d;
+  color: #f8e7c5;
+  padding: 10px;
+  font-size: 11px;
+  border-top: 2px solid var(--texto-oscuro);
+  height: 120px;
+  overflow-y: auto;
+  white-space: pre-line;
+}
+
+.btn-enviar {
+  background: #e8dbb0;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  margin: 0;
+  cursor: pointer;
+  border-top: 2px solid var(--texto-oscuro);
+  font-family: "Press Start 2P";
+  font-size: 11px;
+}
+.btn-ver-solucion {
+  background: #3ca0ff;
+  color: #000;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border: 2px solid #1d4c73;
+  cursor: pointer;
+  font-family: "Press Start 2P";
+  font-size: 10px;
+}
+.btn-ver-solucion:hover {
+  background: #72c3ff;
+}
+
+.btn-pista {
+  display: inline-block;
+  background: #e8dbb0;
+  color: #000;
+  padding: 8px 12px;
+  border: 2px solid var(--texto-oscuro);
+  margin-top: 8px;
+  cursor: pointer;
+  font-family: "Press Start 2P";
+  font-size: 10px;
+  transition: background 0.15s;
+}
+
+.btn-pista:hover {
+  background: #fff2c8;
+}
+
+.pista-oculta {
+  background: #fff7dd;
+  border: 2px solid var(--texto-oscuro);
+  padding: 10px;
+  font-size: 10px;
+  margin-top: 5px;
+  color: #000;
+  display: none;
+  line-height: 1.4;
+}
+
+.pista-oculta.aparecer {
+  animation: pixelOn 0.2s steps(4) forwards;
+}
+
+@keyframes pixelOn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: contrast(120%);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

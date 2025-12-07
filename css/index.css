@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+:root {
+  --rosa: #ff00a0;
+  --naranja: #ffb17a;
+  --vino: #a04668;
+  --fondo: linear-gradient(#ffb17a, #a04668);
+  --texto-oscuro: #1a0f15;
+}
+body {
+  margin: 0;
+  background: var(--fondo);
+  font-family: "Press Start 2P", cursive;
+  color: #fff;
+  overflow-x: hidden;
+  animation: aparecer 0.8s ease-out;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brillo {
+  from {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  to {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.boton {
+  padding: 6px 12px;
+  background: #f8e7c5;
+  border: 2px solid #000;
+  cursor: pointer;
+  font-size: 11px;
+  transition: transform 0.2s;
+}
+
+.boton:hover {
+  transform: scale(1.1);
+}
+
+.hero {
+  padding: 60px;
+  animation: aparecer 1s ease-out;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  text-shadow: 3px 3px #000;
+}
+
+.boton-iniciar {
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: 2px solid #000;
+  background: #f8e7c5;
+  cursor: pointer;
+  font-size: 14px;
+  animation: rebote 2s infinite ease-in-out;
+}
+
+@keyframes rebote {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.iconos {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  animation: aparecer 1.2s ease-out;
+}
+
+.iconos img {
+  width: 50px;
+  image-rendering: pixelated;
+  border: 2px solid #000;
+  background: #222;
+  padding: 6px;
+  transition: transform 0.2s;
+}
+
+.iconos img:hover {
+  transform: scale(1.15);
+}
+
+.cuadricula {
+  margin: 30px auto;
+  max-width: 900px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  animation: aparecer 1.5s ease-out;
+}
+
+.tarjeta {
+  position: relative;
+  height: 180px;
+  border: 2px solid #300;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: aparecerTarjeta 0.8s ease-out;
+}
+
+@keyframes aparecerTarjeta {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.tarjeta:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 8px #000;
+}
+
+.imagen {
+  background-image: url("https://i.imgur.com/m1LV8Re.png");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(100%);
+  transition: transform 5s linear, filter 0.3s;
+}
+
+.tarjeta:hover .imagen {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+.numero {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  font-size: 12px;
+}
+
+.etiqueta {
+  font-family: "Press Start 2P";
+  padding: 3px 6px;
+  font-size: 10px;
+  display: inline-block;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  border: 2px solid #000;
+}
+
+
+
+
+.btn-sesion {
+  background: #e8dbb0;
+  border: none;
+  height: 48px;
+  padding: 0 25px;
+  font-family: "Press Start 2P";
+  cursor: pointer;
+  border-left: 1px solid var(--texto-oscuro);
+  font-size: 11px;
+}
+
+.facil {
+  background: #00ff8c;
+  color: #000;
+}
+
+.medio {
+  background: #ffe247;
+  color: #000;
+}
+
+.dificil {
+  background: #ff4f4f;
+  color: #000;
+}
+
+/* =======================
+   MODAL LOGIN
+======================= */
+
+.modal-login {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#titulo-login{
+  color: var(--vino);
+}
+.login-box {
+  background: #f8e7c5;
+  padding: 25px;
+  width: 320px;
+  border: 4px solid #3b0c0c;
+  text-align: center;
+  position: relative;
+  font-family: "Press Start 2P";
+  animation: aparecer 0.2s ease-out;
+}
+
+.login-box input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: inherit;
+  border: 3px solid #3b0c0c;
+  background: #fff;
+}
+
+.btn-login {
+  background: #4caf50;
+  border: 3px solid #1f5d22;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-family: "Press Start 2P";
+}
+
+.cerrar {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cambio {
+  margin-top: 15px;
+  cursor: pointer;
+  color: #333;
+  font-size: 12px;
+}

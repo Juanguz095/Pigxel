@@ -1,0 +1,65 @@
+.barra-superior {
+  width: 100%;
+  background: var(--vino);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  font-size: 11px;
+}
+
+
+.barra-superior nav {
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.menu-izquierda a,
+.menu-derecha .selector {
+  padding: 0 40px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid var(--texto-oscuro);
+  cursor: pointer;
+}
+
+.menu-logo {
+  font-size: 16px;
+  padding: 0 40px;
+  border-left: 1px solid var(--texto-oscuro);
+  border-right: 1px solid var(--texto-oscuro);
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+
+/* Evita el borde fantasma antes de SOBRE NOSOTROS */
+.menu-derecha .selector {
+  border-left: none;   /* Quita borde sobrante */
+}
+
+/* Asegurar que los <a> ocupen todo el alto y se iluminen completos */
+.menu-izquierda a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 100%;
+}
+
+/* Quitar borde extra en el primer elemento izquierdo */
+.menu-izquierda a:first-child {
+  border-left: none;
+}
+
+/* Hover arreglado para que cubra toda el área */
+.menu-izquierda a:hover,
+.menu-derecha .selector:hover,
+.menu-logo:hover,
+.btn-sesion:hover {
+  background: rgba(255, 255, 255, 0.18);
+  filter: brightness(1.1);
+}

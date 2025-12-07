@@ -1,0 +1,377 @@
+
+    .menu-superior {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px 0;
+      background: rgba(255, 255, 255, 0.1);
+      border-bottom: 3px solid #000;
+    }
+
+    .menu-superior .categoria {
+      padding: 12px 20px;
+      background: var(--rosa);
+      border: 3px solid #000;
+      color: #fff;
+      cursor: pointer;
+      font-family: "Press Start 2P";
+      font-size: 11px;
+      transition: 0.2s;
+    }
+
+    .menu-superior .categoria:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-superior .categoria.activa {
+      background: #000;
+      color: var(--rosa);
+    }
+
+    .contenedor-aprender {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 25px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+      animation: aparecer 0.8s ease-out;
+    }
+
+    .subtemas {
+      background: rgba(255,255,255,0.1);
+      border: 3px solid #000;
+      padding: 20px;
+      height: fit-content;
+      position: sticky;
+      top: 20px;
+    }
+
+    .subtemas button {
+      width: 100%;
+      background: #f8e7c5;
+      border: 2px solid #000;
+      padding: 8px;
+      font-family: "Press Start 2P";
+      font-size: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: 0.15s;
+      text-align: left;
+    }
+
+    .subtemas button:hover {
+      transform: translateX(5px);
+    }
+
+    .subtemas button.activo {
+      background: var(--rosa);
+      color: white;
+    }
+
+    .contenido {
+      background: rgba(255,255,255,0.09);
+      border: 3px solid #000;
+      padding: 30px;
+      animation: aparecerContenido 0.4s ease-out;
+      min-height: 400px;
+      white-space: pre-line;
+    }
+
+    .contenido h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px #000;
+    }
+
+    .contenido p {
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    .codigo {
+        width: 55%;
+        background: #0d1416;
+        border-left: 3px solid var(--texto-oscuro);
+        display: flex;
+        flex-direction: column;
+    }
+    .demo-contenedor {
+  margin-top: 20px;
+  padding: 25px;
+  border: 3px solid #000;
+  background: rgba(255,255,255,0.13);
+}
+
+.demo-area {
+  min-height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.oculto {
+  display: none;
+}
+
+.demo-btn {
+  padding: 14px 22px;
+  border: 3px solid #000;
+  background: #ff77c0;
+  transition: transform 0.25s, background 0.25s;
+  font-family: inherit;
+}
+.demo-btn:hover {
+  transform: scale(1.15) rotate(-3deg);
+  background: #ff4fa3;
+}
+
+.demo-caja {
+  width: 100px;
+  height: 100px;
+  background: #f7c8ff;
+  border: 3px solid #000;
+  transition: background 0.4s, transform 0.4s;
+}
+.demo-caja:hover {
+  background: #8f4aff;
+  transform: rotate(6deg) scale(1.07);
+}
+
+@keyframes mover-demo {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(60px); }
+  100% { transform: translateX(0); }
+}
+
+.demo-caja-animada {
+  width: 80px;
+  height: 80px;
+  background: #ffb6e6;
+  border: 3px solid #000;
+  animation: mover-demo 1.2s infinite ease-in-out;
+}
+
+.demo-area {
+  margin: 15px 0 20px;
+  padding: 25px;
+  background: rgba(255,255,255,0.15);
+  border: 3px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: aparecer 0.4s ease-out;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(10px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+
+.demo-area button {
+  font-family: "Press Start 2P";
+  padding: 14px 18px;
+  cursor: pointer;
+  border: 3px solid #000;
+  background: #ff77c0;
+  transition: 0.25s;
+}
+
+.btn-ver-codigo {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  font-family: "Press Start 2P";
+  font-size: 11px;
+  border: 3px solid #000;
+  background: #ffe7f2;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-ver-codigo:hover {
+  transform: scale(1.05);
+}
+
+.codigo {
+  background: #0d1416;
+    border-left: 3px solid var(--texto-oscuro);
+  padding: 14px;
+  margin-bottom: 30px;
+  border: 3px solid #000;
+  font-size: 11px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+
+.oculto {
+  display: none;
+}
+
+.color-hover {
+  background: #ff77c0;
+  transition: background 0.25s;
+}
+.color-hover:hover {
+  background: #ff4fa3;
+}
+
+.scale-hover {
+  background: #ffe271;
+  transition: transform 0.25s;
+}
+.scale-hover:hover {
+  transform: scale(1.12) rotate(-2deg);
+}
+
+.shadow-hover {
+  background: #b0f7ff;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.shadow-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.border-anim {
+  background: #fff;
+  border: 3px solid #000;
+  position: relative;
+  overflow: hidden;
+}
+.border-anim::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #000;
+  left: -100%;
+  bottom: 0;
+  transition: left 0.35s;
+}
+.border-anim:hover::after {
+  left: 0;
+}
+/* ------------------------ */
+/* 1. Cambio de color suave */
+/* ------------------------ */
+.trans-color {
+  padding: 12px 18px;
+  background: #ff95d6;
+  border: 3px solid #000;
+  transition: background 0.4s ease;
+}
+.trans-color:hover {
+  background: #ff55bb;
+}
+
+/* ------------------------ */
+/* 2. Escala suave          */
+/* ------------------------ */
+.trans-scale {
+  padding: 12px 18px;
+  background: #95ffb3;
+  border: 3px solid #000;
+  transition: transform 0.35s ease;
+}
+.trans-scale:hover {
+  transform: scale(1.18);
+}
+
+/* ------------------------ */
+/* 3. Opacidad suave        */
+/* ------------------------ */
+.trans-opacity {
+  padding: 12px 18px;
+  background: #ffe58f;
+  border: 3px solid #000;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.trans-opacity:hover {
+  opacity: 0.6;
+  transform: translateY(-4px);
+}
+
+/* ------------------------ */
+/* 4. Transición con JS     */
+/* ------------------------ */
+.trans-js {
+  padding: 12px 18px;
+  background: #b0d8ff;
+  border: 3px solid #000;
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+.trans-js.active {
+  background: #6bb3ff;
+  transform: scale(1.1);
+}
+/* Fade In */
+@keyframes fadeInKey {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  padding: 12px 18px;
+  background: #b9ffc8;
+  border: 3px solid #000;
+  animation: fadeInKey 1s ease forwards;
+}
+
+/* Bounce */
+@keyframes bounceKey {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.bounce {
+  padding: 12px 18px;
+  background: #ffe8a3;
+  border: 3px solid #000;
+  animation: bounceKey 0.8s ease-in-out infinite;
+}
+
+/* Spin */
+@keyframes spinKey {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spin {
+  padding: 12px 18px;
+  background: #d4c3ff;
+  border: 3px solid #000;
+  animation: spinKey 1.2s linear infinite;
+}
+
+/* Complex animation */
+@keyframes complexKey {
+  0%   { transform: translateY(20px) rotate(-5deg); opacity: 0; }
+  40%  { transform: translateY(-5px) rotate(2deg);  opacity: 1; }
+  80%  { transform: translateY(0px) rotate(0deg);   opacity: 1; }
+  100% { transform: translateY(2px); }
+}
+.svg-demo-container {
+  width: 400px;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-demo {
+  width: 100%;
+  transition: filter 0.3s;
+}
+
+#svg-demo {
+  position: absolute;
+  top: 50%;
+  left: -150px; /* Aparece desde fuera a la izquierda */
+  transform: translateY(-50%) scale(1);
+  transition: transform 0.1s linear, left 0.1s linear;
+}
+
+#svg-slider {
+  width: 100%;
+  margin-top: 15px;
+}
+

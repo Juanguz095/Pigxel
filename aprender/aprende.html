@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprende Programación – GranjaChanchito</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/aprender.css">
+    <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- Anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <script src="../js/demos.js"></script>
+</head>
+<body>
+
+<header class="barra-superior">
+  <nav class="menu-izquierda">
+    <a>PUNTOS: 0</a>
+    <a>APRENDER</a>
+    <a>LOGROS</a>
+  </nav>
+
+  <div class="menu-logo">🐷 GranjaChanchito</div>
+
+  <nav class="menu-derecha">
+    <div class="selector activo">APRENDER</div>
+    <button class="btn-sesion">INICIAR SESIÓN</button>
+  </nav>
+</header>
+
+<!-- MENU SUPERIOR DE CATEGORÍAS -->
+<div class="menu-superior">
+  <div class="categoria activa" onclick="mostrarSubtemas('js', event)">JavaScript</div>
+  <div class="categoria" onclick="mostrarSubtemas('css', event)">CSS</div>
+  <div class="categoria" onclick="mostrarSubtemas('anim', event)">Animaciones</div>
+  <div class="categoria" onclick="mostrarSubtemas('svg', event)">SVG</div>
+  <div class="categoria" onclick="mostrarSubtemas('media', event)">Audio & Video</div>
+</div>
+
+<section class="contenedor-aprender">
+
+  <!-- SUBTEMAS -->
+  <aside id="subtemas" class="subtemas"></aside>
+
+  <!-- CONTENIDO -->
+  <article id="contenido" class="contenido">
+    <h2>Bienvenido 🐷✨</h2>
+    <p>Selecciona una categoría arriba para empezar a aprender.</p>
+  </article>
+
+</section>
+
+<script src="../js/aprenderJS/contenidoData.js"></script>
+<script src="../js/aprenderJS/subtemas.js"></script>
+<script src="../js/aprenderJS/animaciones.js"></script>
+<script src="../js/aprenderJS/cargar.js"></script>
+
+<script>
+  mostrarSubtemas("js", { target: document.querySelector(".categoria") });
+</script>
+
+</body>
+</html>
