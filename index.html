@@ -6,6 +6,7 @@
   <title>GranjaChanchito</title>
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/modalLogin.css">
 </head>
 
 <body>
@@ -85,101 +86,10 @@ document.getElementById("cuadricula-retos").innerHTML =
       <span class="numero">${r.id}</span>
     </a>
   `).join("");
-
-
-// ============================
-// SISTEMA LOGIN / REGISTRO
-// ============================
-document.addEventListener("DOMContentLoaded", () => {
-
-  const modal = document.getElementById("modal-login");
-  const btnSesion = document.getElementById("btn-usuario");
-  const btnCerrar = document.getElementById("cerrar-login");
-
-  const formLogin = document.getElementById("form-login");
-  const formRegistro = document.getElementById("form-registro");
-
-  const btnLogin = document.getElementById("btn-login");
-  const btnRegistrar = document.getElementById("btn-registrar");
-
-  const irRegistro = document.getElementById("ir-registro");
-  const irLogin = document.getElementById("ir-login");
-
-  const puntosUI = document.querySelector(".menu-izquierda a");
-
-  // ---- Cargar sesión ----
-  function cargarSesion() {
-    const usuario = localStorage.getItem("usuario");
-    const puntos = localStorage.getItem("puntos") || 0;
-
-    puntosUI.textContent = `PUNTOS: ${puntos}`;
-    btnSesion.textContent = usuario ? usuario + " 🐷" : "INICIAR SESIÓN";
-  }
-
-  cargarSesion();
-
-
-  // ---- Abrir modal ----
-  btnSesion.addEventListener("click", () => {
-    modal.style.display = "flex";
-  });
-
-  // ---- Cerrar modal ----
-  btnCerrar.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  // ---- Cambiar a registro ----
-  irRegistro.addEventListener("click", () => {
-    formLogin.style.display = "none";
-    formRegistro.style.display = "block";
-    document.getElementById("titulo-login").textContent = "Registrarse";
-  });
-
-
-  // ---- Volver login ----
-  irLogin.addEventListener("click", () => {
-    formLogin.style.display = "block";
-    formRegistro.style.display = "none";
-    document.getElementById("titulo-login").textContent = "Iniciar Sesión";
-  });
-
-  // ---- Registrar ----
-  btnRegistrar.addEventListener("click", () => {
-    const u = document.getElementById("reg-user").value.trim();
-    const p = document.getElementById("reg-pass").value.trim();
-
-    if (!u || !p) return alert("Completa todos los campos");
-
-    localStorage.setItem("usuario", u);
-    localStorage.setItem("password", p);
-    localStorage.setItem("puntos", 0);
-
-    alert("Cuenta creada 🎉");
-    irLogin.click(); // volver a login
-  });
-
-  // ---- Iniciar sesión ----
-  btnLogin.addEventListener("click", () => {
-    const u = document.getElementById("login-user").value.trim();
-    const p = document.getElementById("login-pass").value.trim();
-
-    if (u === localStorage.getItem("usuario") &&
-        p === localStorage.getItem("password")) {
-
-      alert("Sesión iniciada 🐷✨");
-      localStorage.setItem("usuarioLogueado", "true");
-      modal.style.display = "none";
-      cargarSesion();
-
-    } else {
-      alert("Usuario o contraseña incorrectos");
-    }
-  });
-
-});
-
 </script>
+
+<script src="js/retosJS/login.js"></script>
+<script src="js/retosJS/puntos.js"></script>
 
 <script src="js/retosJS/puntos.js"></script>
 </body>
