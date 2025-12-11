@@ -7,23 +7,23 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/modalLogin.css">
+  <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
 <header class="barra-superior">
   <nav class="menu-izquierda">
     <a id="header-puntos">PUNTOS: 0</a>
-    <a>APRENDER</a>
+    <a href="aprender/aprende.html">APRENDER</a>
     <a style="text-align: center;">LOGROS</a>
   </nav>
-  <div class="menu-logo">🐷 Pigxel Studio</div>
+  <a href="index.html"><div class="menu-logo">🐷 Pigxel Studio</div></a>
   <nav class="menu-derecha">
-    <div class="selector activo">SOBRE NOSOTROS</div>
+    <a href="sobreNosotros.html"><div class="selector activo">SOBRE NOSOTROS</div></a>
     <button class="btn-sesion" id="btn-usuario">INICIAR SESIÓN</button>
   </nav>
 </header>
 
-<!-- MODAL LOGIN / REGISTRO -->
 <div id="modal-login" class="modal-login">
   <div class="login-box">
 
@@ -31,7 +31,6 @@
 
     <h2 id="titulo-login">Iniciar Sesión</h2>
 
-    <!-- LOGIN -->
     <div id="form-login">
       <input type="text" id="login-user" placeholder="Usuario">
       <input type="password" id="login-pass" placeholder="Contraseña">
@@ -43,7 +42,6 @@
       </p>
     </div>
 
-    <!-- REGISTRO -->
     <div id="form-registro" style="display:none;">
       <input type="text" id="reg-user" placeholder="Nuevo usuario">
       <input type="password" id="reg-pass" placeholder="Nueva contraseña">
@@ -60,17 +58,84 @@
 
 <section class="hero">
   <h1>RETOS DE LA GRANJA</h1>
-  <p>24 desafíos antes de la cosecha 🐷🌾</p>
-  <button class="boton-iniciar">INGRESAR</button>
-
-  <div class="iconos">
-    <img src="https://i.imgur.com/kR1qz7K.png" alt="JS">
-    <img src="https://i.imgur.com/4u4Cq8y.png" alt="TS">
-    <img src="https://i.imgur.com/Yz3O7PG.png" alt="PY">
-  </div>
+  <p >24 desafíos para aprender javascript</p>
 </section>
 
 <section class="cuadricula" id="cuadricula-retos"></section>
+
+<footer class="footerPigxel">
+  <div class="contenidoPie animEntrada">
+
+    <div class="seccionPie">
+      <h3>Sobre Pigxel</h3>
+      <p>
+        Somos un estudio especializado en animación web y diseño interactivo.
+        Transformamos ideas en experiencias digitales memorables.
+      </p>
+
+      <div class="enlacesSociales">
+        <a href="#" class="iconoSocial" title="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12..."/>
+          </svg>
+        </a>
+        <a href="#" class="iconoSocial" title="Twitter">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775..."/>
+          </svg>
+        </a>
+        <a href="#" class="iconoSocial" title="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C8.74 0 8.333.015..."/>
+          </svg>
+        </a>
+        <a href="#" class="iconoSocial" title="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373..."/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="seccionPie">
+      <h3>Servicios</h3>
+      <ul>
+        <li><a href="#animacionCss">Animación CSS</a></li>
+        <li><a href="#animacionJs">Animación JavaScript</a></li>
+        <li><a href="#gsap">Animaciones GSAP</a></li>
+        <li><a href="#svg">Animación SVG</a></li>
+        <li><a href="#consultoria">Consultoría Web</a></li>
+      </ul>
+    </div>
+
+    <div class="seccionPie">
+      <h3>Boletín</h3>
+      <p>Suscríbete para recibir consejos de animación y novedades del estudio.</p>
+
+      <form class="formularioBoletin" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte! 🎉');">
+        <input type="email" class="inputBoletin" placeholder="tu@correo.com" required>
+        <button type="submit" class="botonBoletin">Suscribir</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="pieInferior animEntradaRetraso">
+    <div class="pieInferiorIzquierda">
+      <span class="logoPie">🐽 PIGXEL</span>
+      <span class="derechosAutor">© 2025 Pigxel Studio. Todos los derechos reservados.</span>
+    </div>
+
+    <div class="pieInferiorDerecha">
+      <a href="#privacidad">Privacidad</a>
+      <a href="#terminos">Términos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+
+
 
 <script>
 const retos = Array.from({ length: 24 }, (_, i) => {
@@ -82,11 +147,31 @@ document.getElementById("cuadricula-retos").innerHTML =
   retos.map(r => `
     <a href="retos/reto${r.id}.html" class="tarjeta">
       <span class="etiqueta ${r.nivel.toLowerCase()}">${r.nivel}</span>
-      <div class="imagen"></div>
+      <div class="imagen" style="background-image: url('reto${r.id}.png')"></div>
       <span class="numero">${r.id}</span>
     </a>
   `).join("");
 </script>
+
+<script>
+// Cuando cargue la página, marcar los retos completados
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".tarjeta").forEach(t => {
+    const id = t.querySelector(".numero").textContent;
+
+    if (localStorage.getItem("reto" + id) === "completado") {
+      t.classList.add("completado");
+      
+      // Agregar check visual
+      const check = document.createElement("span");
+      check.classList.add("check-retro");
+      check.textContent = "✔";
+      t.appendChild(check);
+    }
+  });
+});
+</script>
+
 
 <script src="js/retosJS/login.js"></script>
 <script src="js/retosJS/puntos.js"></script>

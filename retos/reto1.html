@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reto 1 — GranjaChanchito</title>
+  <!-- MONACO EDITOR (VS CODE en la web) -->
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.js"></script>
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/ejercicios.css">
+  <link rel="stylesheet" href="../css/modalLogin.css">
+  <!-- TU CSS EXACTO -->
+</head>
+<body>
+<header class="barra-superior">
+  <nav class="menu-izquierda">
+    <a id="header-puntos">PUNTOS: 0</a>
+    <a href="../aprender/aprende.html">APRENDER</a>
+    <a style="text-align: center;">LOGROS</a>
+  </nav>
+  <a href="../index.html"><div class="menu-logo">🐷 Pigxel Studio</div></a>
+  <nav class="menu-derecha">
+    <a href="../sobreNosotros.html"><div class="selector activo">SOBRE NOSOTROS</div></a>
+    <button class="btn-sesion" id="btn-usuario">INICIAR SESIÓN</button>
+  </nav>
+</header>
+
+<div class="contenedor-reto">
+  
+  <div class="panel-instrucciones">
+    <span class="tag-facil">FACIL</span>
+
+<h2>Reto 1: Contar elementos de una lista 🐷📦</h2>
+
+<p>
+  En la <strong>Granja</strong>, el chanchito aprendiz está aprendiendo
+  a organizar cajas llenas de objetos. Antes de clasificarlas, necesita saber
+  <strong>cuántos elementos hay dentro de cada una</strong>.
+</p>
+
+<p>
+  Tu misión es escribir una función que reciba una lista y devuelva
+  <strong>la cantidad total de elementos</strong> que contiene.
+  Este es un reto ideal para comenzar a entrenar tus habilidades.
+</p>
+
+<p>
+  Recuerda: todas las listas en JavaScript tienen una propiedad muy útil para esto.
+</p>
+
+<pre>
+Ejemplo:
+resolver(["toy", "boots", "corn"])
+→ 3
+</pre>
+
+<!-- 🎯 BLOQUE DE PISTAS -->
+<div class="bloque-ayuda" style="margin-top: 10px; margin-bottom: 20px;">
+
+  <button class="btn-pista" onclick="mostrarPista('pista1')">❓ Pista 1</button>
+  <div id="pista1" class="pista-oculta" style="display:none; margin-top:5px;">
+    ¿Qué propiedad te dice cuántos elementos tiene un arreglo?
+  </div>
+
+  <button class="btn-pista" onclick="mostrarPista('pista2')" style="margin-top:10px;">💡 Pista 2</button>
+  <div id="pista2" class="pista-oculta" style="display:none; margin-top:5px;">
+    la funcion debe recibir un argumento
+  </div>
+
+  <button class="btn-pista" onclick="mostrarPista('explicacion')" style="margin-top:10px;">🧠 Explicación técnica</button>
+  <div id="explicacion" class="pista-oculta" style="display:none; margin-top:5px;">
+    Todos los arrays en JavaScript tienen la propiedad <code>length</code>.
+    Devuelve un número entero con la cantidad de elementos.
+  </div>
+  
+</div>
+<!-- 🎯 FIN DE PISTAS -->
+
+<button class="btn-ver-solucion" onclick="toggleSolucion()">VER SOLUCIÓN</button>
+
+<pre id="solucionOficialPanel" style="display: none;">
+// Solución oficial
+function resolver(lista) {
+  return lista.length;
+}
+</pre>
+
+  </div>
+
+  <!-- 📌 PANEL DERECHA -->
+  <div class="panel-codigo">
+    <div class="tabs">
+      <div class="activo">main.js</div>
+    </div>
+
+<div id="editor" style="flex: 1; width: 100%;"></div>
+
+
+    <button class="btn-enviar" onclick="ejecutar()">ENVIAR SOLUCIÓN</button>
+
+    <div class="resultado" id="resultado">Resultado aparecerá aquí...</div>
+  </div>
+
+</div>
+<!-- MODAL DE ÉXITO -->
+<div id="modal-exito" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+">
+  <div style="
+    background: #f8e7c5;
+    color: #000;
+    padding: 25px;
+    border: 4px solid #3b0c0c;
+    width: 350px;
+    text-align: center;
+    font-family: 'Press Start 2P';
+  ">
+    <h3 style="margin-bottom: 15px;">¡Reto superado!</h3>
+    <p>Todos los tests pasaron correctamente.</p>
+
+    <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+      <button onclick="cerrarModal()" style="
+        background: #3ca0ff;
+        border: 3px solid #1d4c73;
+        padding: 10px;
+        cursor: pointer;
+        font-family: 'Press Start 2P';
+      ">CERRAR</button>
+
+      <button id="btn-siguiente-reto" style="
+        display: none;
+        background: #7aff8a;
+        border: 3px solid #2d5c2f;
+        padding: 10px;
+        cursor: pointer;
+        font-family: 'Press Start 2P';
+      ">SIGUIENTE RETO →</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- MODAL LOGIN / REGISTRO -->
+<div id="modal-login" class="modal-login">
+  <div class="login-box">
+
+    <div class="cerrar" id="cerrar-login">✖</div>
+
+    <h2 id="titulo-login">Iniciar Sesión</h2>
+
+    <!-- LOGIN -->
+    <div id="form-login">
+      <input type="text" id="login-user" placeholder="Usuario">
+      <input type="password" id="login-pass" placeholder="Contraseña">
+
+      <button class="btn-login" id="btn-login">Entrar</button>
+
+      <p class="cambio" id="ir-registro">
+        ¿No tienes cuenta? Regístrate
+      </p>
+    </div>
+
+    <!-- REGISTRO -->
+    <div id="form-registro" style="display:none;">
+      <input type="text" id="reg-user" placeholder="Nuevo usuario">
+      <input type="password" id="reg-pass" placeholder="Nueva contraseña">
+
+      <button class="btn-login" id="btn-registrar">Crear Cuenta</button>
+
+      <p class="cambio" id="ir-login">
+        ¿Ya tienes cuenta? Inicia Sesión
+      </p>
+    </div>
+
+  </div>
+</div>
+<script>
+  require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs' } });
+
+let editor;
+
+require(["vs/editor/editor.main"], function () {
+
+  editor = monaco.editor.create(document.getElementById("editor"), {
+    value: `// Lista que debes recorrer 👇
+const regalos = ["carro", "peluche", "guitarra", "robot"];
+
+function resolver() {
+  // tu código...
+  return ;
+}
+`,
+    language: "javascript",
+    theme: "vs-dark",
+    fontSize: 12,
+    minimap: { enabled: false },
+    smoothScrolling: true,
+    automaticLayout: true
+  });
+
+})
+</script>
+
+<script src="../js/retosJS/retoBase.js"></script>
+<script src="../js/retosJS/login.js"></script>
+<script src="../js/retosJS/puntos.js"></script>
+
+
+<script src="../js/retosJS/configRetos/reto1.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reto 4 — GranjaChanchito</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.js"></script>
+
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/ejercicios.css">
+  <link rel="stylesheet" href="../css/modalLogin.css">
+</head>
+
+<body>
+
+<header class="barra-superior">
+  <nav class="menu-izquierda">
+    <a id="header-puntos">PUNTOS: 0</a>
+    <a href="../aprender/aprende.html">APRENDER</a>
+    <a>LOGROS</a>
+  </nav>
+
+  <a href="../index.html"><div class="menu-logo">🐷 Pigxel Studio</div></a>
+
+  <nav class="menu-derecha">
+    <a href="../sobreNosotros.html"><div class="selector activo">SOBRE NOSOTROS</div></a>
+    <button class="btn-sesion" id="btn-usuario">INICIAR SESIÓN</button>
+  </nav>
+</header>
+
+
+<div class="contenedor-reto">
+
+  <!-- 📌 PANEL IZQUIERDO -->
+  <div class="panel-instrucciones">
+    <span class="tag-facil">FACIL</span>
+
+    <h2>Reto 4: ¿La palabra contiene la letra? 🐷🔤</h2>
+
+    <p>
+      El chanchito lector está aprendiendo nuevas palabras, pero a veces se confunde.
+      Necesita que le ayudes a saber si una palabra contiene una letra específica.
+    </p>
+
+    <p>
+      Escribe una función que reciba una <strong>palabra</strong> y una <strong>letra</strong>,
+      y devuelva <strong>true</strong> si está presente, o <strong>false</strong> si no.
+    </p>
+
+<pre>
+Ejemplo:
+resolver("pollo", "o") → true
+resolver("maiz", "x") → false
+</pre>
+
+<!-- 🎯 PISTAS -->
+<div class="bloque-ayuda">
+
+  <button class="btn-pista" onclick="mostrarPista('p1')">❓ Pista 1</button>
+  <div id="p1" class="pista-oculta" style="display:none;">
+    Todas las cadenas tienen un método para saber si incluyen algo…
+  </div>
+
+  <button class="btn-pista" onclick="mostrarPista('p2')" style="margin-top:10px;">💡 Pista 2</button>
+  <div id="p2" class="pista-oculta" style="display:none;">
+    Ese método se llama <code>includes()</code>.
+  </div>
+
+  <button class="btn-pista" onclick="mostrarPista('exp')" style="margin-top:10px;">🧠 Explicación técnica</button>
+  <div id="exp" class="pista-oculta" style="display:none;">
+    Con <code>palabra.includes(letra)</code> obtienes un booleano automáticamente.
+  </div>
+
+</div>
+
+<button class="btn-ver-solucion" onclick="toggleSolucion()">VER SOLUCIÓN</button>
+
+<pre id="solucionOficialPanel" style="display:none;"></pre>
+
+  </div>
+
+  <!-- 📌 PANEL DERECHO -->
+  <div class="panel-codigo">
+    <div class="tabs">
+      <div class="activo">main.js</div>
+    </div>
+
+    <div id="editor" style="flex:1; width:100%; height:300px;"></div>
+
+    <button class="btn-enviar" onclick="ejecutar()">ENVIAR SOLUCIÓN</button>
+
+    <div class="resultado" id="resultado">Resultado aparecerá aquí...</div>
+  </div>
+
+</div>
+
+
+<!-- MODAL DE ÉXITO -->
+<div id="modal-exito" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+">
+  <div style="
+    background: #f8e7c5;
+    color: #000;
+    padding: 25px;
+    border: 4px solid #3b0c0c;
+    width: 350px;
+    text-align: center;
+    font-family: 'Press Start 2P';
+  ">
+    <h3 style="margin-bottom: 15px;">¡Reto superado!</h3>
+    <p>Todos los tests pasaron correctamente.</p>
+
+    <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+      <button onclick="cerrarModal()" style="
+        background: #3ca0ff;
+        border: 3px solid #1d4c73;
+        padding: 10px;
+        cursor: pointer;
+        font-family: 'Press Start 2P';
+      ">CERRAR</button>
+
+      <button id="btn-siguiente-reto" style="
+        display: none;
+        background: #7aff8a;
+        border: 3px solid #2d5c2f;
+        padding: 10px;
+        cursor: pointer;
+        font-family: 'Press Start 2P';
+      ">SIGUIENTE RETO →</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/retosJS/retoBase.js"></script>
+<script src="../js/retosJS/login.js"></script>
+<script src="../js/retosJS/puntos.js"></script>
+<script src="../js/retosJS/configRetos/reto4.js"></script>
+
+<script>
+require.config({ paths:{ 'vs':'https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs' } });
+
+let editor;
+
+require(["vs/editor/editor.main"], function () {
+  editor = monaco.editor.create(document.getElementById("editor"), {
+    value: `// ejemplo de palabra y letra 👇
+const palabra = "chanchito";
+const letra = "a";
+
+function resolver(args) {
+  const [palabra, letra] = args;
+  // tu código...
+  return ;
+}
+`,
+    language: "javascript",
+    theme: "vs-dark",
+    fontSize: 12,
+    minimap: { enabled:false },
+    automaticLayout:true
+  });
+});
+</script>
+
+</body>
+</html>

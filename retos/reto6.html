@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reto 6 — GranjaChanchito</title>
+  <!-- MONACO EDITOR -->
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.js"></script>
+
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/ejercicios.css">
+  <link rel="stylesheet" href="../css/modalLogin.css">
+</head>
+
+<body>
+
+<header class="barra-superior">
+  <nav class="menu-izquierda">
+    <a id="header-puntos">PUNTOS: 0</a>
+    <a href="../aprender/aprende.html">APRENDER</a>
+    <a style="text-align: center;">LOGROS</a>
+  </nav>
+
+  <a href="../index.html"><div class="menu-logo">🐷 Pigxel Studio</div></a>
+
+  <nav class="menu-derecha">
+    <a href="../sobreNosotros.html"><div class="selector activo">SOBRE NOSOTROS</div></a>
+    <button class="btn-sesion" id="btn-usuario">INICIAR SESIÓN</button>
+  </nav>
+</header>
+
+<div class="contenedor-reto">
+
+  <!-- 📌 PANEL IZQUIERDO -->
+  <div class="panel-instrucciones">
+    <span class="tag-dificil">DIFICIL</span>
+
+    <h2>Reto 4: Sumar los números pares 🐷➕</h2>
+
+    <p>
+      En la Granja, el chanchito contador debe calcular cuánta comida extra se necesita
+      para las tareas especiales. Le pasaron una lista con cantidades (números enteros)
+      y solo quiere sumar las cantidades pares (los pares significan raciones completas).
+    </p>
+
+    <p>
+      Escribe una función que reciba una lista de números y <strong>devuelva la suma
+      de los valores pares</strong>. Si no hay pares, devuelve 0.
+    </p>
+
+<pre>
+Ejemplo:
+resolver([1, 4, 3, 2, 7])
+→ 6   // (4 + 2)
+</pre>
+
+<!-- 🎯 BLOQUE DE PISTAS -->
+<div class="bloque-ayuda" style="margin-top: 10px; margin-bottom: 20px;">
+
+  <button class="btn-pista" onclick="mostrarPista('p4_1')">❓ Pista 1</button>
+  <div id="p4_1" class="pista-oculta" style="display:none; margin-top:5px;">
+    ¿Cómo sabes si un número es par en JavaScript? (pista: operador)
+  </div>
+
+  <button class="btn-pista" onclick="mostrarPista('p4_2')" style="margin-top:10px;">💡 Pista 2</button>
+  <div id="p4_2" class="pista-oculta" style="display:none; margin-top:5px;">
+    Usa el operador módulo: <code>n % 2 === 0</code> indica que n es par.
+  </div>
+
+  <button class="btn-pista" onclick="mostrarPista('p4_exp')" style="margin-top:10px;">🧠 Explicación técnica</button>
+  <div id="p4_exp" class="pista-oculta" style="display:none; margin-top:5px;">
+    Recorre la lista, filtra o comprueba cada número, y acumula la suma de los pares.
+  </div>
+  
+</div>
+<!-- 🎯 FIN DE PISTAS -->
+
+<button class="btn-ver-solucion" onclick="toggleSolucion()">VER SOLUCIÓN</button>
+
+<pre id="solucionOficialPanel" style="display: none;"></pre>
+
+  </div>
+
+  <!-- 📌 PANEL DERECHO -->
+  <div class="panel-codigo">
+    <div class="tabs">
+      <div class="activo">main.js</div>
+    </div>
+
+    <div id="editor" style="flex:1; width:100%; height: 320px;"></div>
+
+    <button class="btn-enviar" onclick="ejecutar()">ENVIAR SOLUCIÓN</button>
+
+    <div class="resultado" id="resultado">Resultado aparecerá aquí...</div>
+  </div>
+
+</div>
+
+<!-- MODAL DE ÉXITO -->
+<div id="modal-exito" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+">
+  <div style="
+    background: #f8e7c5;
+    color: #000;
+    padding: 25px;
+    border: 4px solid #3b0c0c;
+    width: 350px;
+    text-align: center;
+    font-family: 'Press Start 2P';
+  ">
+    <h3 style="margin-bottom: 15px;">¡Reto superado!</h3>
+    <p>Todos los tests pasaron correctamente.</p>
+
+    <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+      <button onclick="cerrarModal()" style="
+        background: #3ca0ff;
+        border: 3px solid #1d4c73;
+        padding: 10px;
+        cursor: pointer;
+        font-family: 'Press Start 2P';
+      ">CERRAR</button>
+
+      <button id="btn-siguiente-reto" style="
+        display: none;
+        background: #7aff8a;
+        border: 3px solid #2d5c2f;
+        padding: 10px;
+        cursor: pointer;
+        font-family: 'Press Start 2P';
+      ">SIGUIENTE RETO →</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN (modal ya definido en login.js) -->
+<div id="modal-login" class="modal-login"></div>
+
+<!-- JS GENERALES -->
+<script src="../js/retosJS/retoBase.js"></script>
+<script src="../js/retosJS/login.js"></script>
+<script src="../js/retosJS/puntos.js"></script>
+
+<!-- CONFIG DEL RETO -->
+<script src="../js/retosJS/configRetos/reto4.js"></script>
+
+<!-- EDITOR -->
+<script>
+require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs' } });
+
+let editor;
+
+require(["vs/editor/editor.main"], function () {
+
+  editor = monaco.editor.create(document.getElementById("editor"), {
+    value: `// Lista que debes recorrer 👇
+const numeros = [1, 4, 3, 2, 10, 7];
+
+function resolver(lista) {
+  // tu código...
+  return ;
+}
+`,
+    language: "javascript",
+    theme: "vs-dark",
+    fontSize: 12,
+    minimap: { enabled: false },
+    automaticLayout: true
+  });
+
+});
+</script>
+
+</body>
+</html>

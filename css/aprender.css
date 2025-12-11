@@ -24,7 +24,7 @@
     }
 
     .menu-superior .categoria.activa {
-      background: #000;
+      background: aliceblue;;
       color: var(--rosa);
     }
 

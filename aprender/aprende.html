@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/aprender.css">
+  <link rel="stylesheet" href="../css/modalLogin.css">
+  <link rel="stylesheet" href="../css/footer.css">
     <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
@@ -19,16 +21,14 @@
 
 <header class="barra-superior">
   <nav class="menu-izquierda">
-    <a>PUNTOS: 0</a>
-    <a>APRENDER</a>
-    <a>LOGROS</a>
+    <a id="header-puntos">PUNTOS: 0</a>
+    <a href="aprende.html">APRENDER</a>
+    <a style="text-align: center;">LOGROS</a>
   </nav>
-
-  <div class="menu-logo">🐷 GranjaChanchito</div>
-
+  <a href="../index.html"><div class="menu-logo">🐷 Pigxel Studio</div></a>
   <nav class="menu-derecha">
-    <div class="selector activo">APRENDER</div>
-    <button class="btn-sesion">INICIAR SESIÓN</button>
+    <a href="../sobreNosotros.html"><div class="selector activo">SOBRE NOSOTROS</div></a>
+    <button class="btn-sesion" id="btn-usuario">INICIAR SESIÓN</button>
   </nav>
 </header>
 
@@ -54,11 +54,45 @@
 
 </section>
 
+
+
+<div id="modal-login" class="modal-login">
+  <div class="login-box">
+
+    <div class="cerrar" id="cerrar-login">✖</div>
+
+    <h2 id="titulo-login">Iniciar Sesión</h2>
+
+    <div id="form-login">
+      <input type="text" id="login-user" placeholder="Usuario">
+      <input type="password" id="login-pass" placeholder="Contraseña">
+
+      <button class="btn-login" id="btn-login">Entrar</button>
+
+      <p class="cambio" id="ir-registro">
+        ¿No tienes cuenta? Regístrate
+      </p>
+    </div>
+
+    <div id="form-registro" style="display:none;">
+      <input type="text" id="reg-user" placeholder="Nuevo usuario">
+      <input type="password" id="reg-pass" placeholder="Nueva contraseña">
+
+      <button class="btn-login" id="btn-registrar">Crear Cuenta</button>
+
+      <p class="cambio" id="ir-login">
+        ¿Ya tienes cuenta? Inicia Sesión
+      </p>
+    </div>
+
+  </div>
+</div>
 <script src="../js/aprenderJS/contenidoData.js"></script>
 <script src="../js/aprenderJS/subtemas.js"></script>
 <script src="../js/aprenderJS/animaciones.js"></script>
 <script src="../js/aprenderJS/cargar.js"></script>
-
+<script src="../js/retosJS/login.js"></script>
+<script src="../js/retosJS/puntos.js"></script>
 <script>
   mostrarSubtemas("js", { target: document.querySelector(".categoria") });
 </script>

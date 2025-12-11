@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reto 5 — GranjaChanchito</title>
+
+  <!-- MONACO EDITOR -->
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.js"></script>
+
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/ejercicios.css">
+  <link rel="stylesheet" href="../css/modalLogin.css">
+</head>
+
+<body>
+
+<header class="barra-superior">
+  <nav class="menu-izquierda">
+    <a id="header-puntos">PUNTOS: 0</a>
+    <a href="../aprender/aprende.html">APRENDER</a>
+    <a style="text-align: center;">LOGROS</a>
+  </nav>
+
+  <a href="../index.html"><div class="menu-logo">🐷 Pigxel Studio</div></a>
+
+  <nav class="menu-derecha">
+    <a href="../sobreNosotros.html"><div class="selector activo">SOBRE NOSOTROS</div></a>
+    <button class="btn-sesion" id="btn-usuario">INICIAR SESIÓN</button>
+  </nav>
+</header>
+
+<div class="contenedor-reto">
+
+  <!-- 📌 PANEL IZQUIERDO -->
+  <div class="panel-instrucciones">
+    <span class="tag-medio">MEDIO</span>
+
+    <h2>Reto 5: Números únicos 🐷🔍</h2>
+
+    <p>
+      En la granja, el chanchito inventor está clasificando piezas. Algunas se repiten,
+      otras solo aparecen una vez. Necesita que le ayudes a encontrar las piezas únicas.
+    </p>
+
+    <p>
+      Escribe una función que reciba una lista de números y devuelva <strong>solo aquellos
+      que aparecen exactamente una vez</strong>, manteniendo su orden original.
+    </p>
+
+<pre>
+Ejemplo:
+resolver([3, 5, 3, 2, 8, 5, 9])
+→ [2, 8, 9]
+</pre>
+
+<!-- 🎯 BLOQUE DE PISTAS -->
+<div class="bloque-ayuda" style="margin-top: 10px; margin-bottom: 20px;">
+
+  <button class="btn-pista" onclick="mostrarPista('p5_1')">❓ Pista 1</button>
+  <div id="p5_1" class="pista-oculta" style="display:none; margin-top:5px;">
+    ¿Cómo contar cuántas veces aparece un número?
+  </div>
+
+  <button class="btn-pista" onclick="mostrarPista('p5_2')" style="margin-top:10px;">💡 Pista 2</button>
+  <div id="p5_2" class="pista-oculta" style="display:none; margin-top:5px;">
+    Puedes usar un objeto para llevar conteo: <code>{}</code>.
+  </div>
+
+  <button class="btn-pista" onclick="mostrarPista('p5_exp')" style="margin-top:10px;">🧠 Explicación técnica</button>
+  <div id="p5_exp" class="pista-oculta" style="display:none; margin-top:5px;">
+    Primero cuenta las apariciones con un objeto, luego filtra solo los valores cuyo conteo sea 1.
+  </div>
+
+</div>
+
+<button class="btn-ver-solucion" onclick="toggleSolucion()">VER SOLUCIÓN</button>
+
+<pre id="solucionOficialPanel" style="display: none;"></pre>
+
+  </div>
+
+  <!-- 📌 PANEL DERECHO -->
+  <div class="panel-codigo">
+    <div class="tabs">
+      <div class="activo">main.js</div>
+    </div>
+
+    <div id="editor" style="flex:1; width:100%; height: 320px;"></div>
+
+    <button class="btn-enviar" onclick="ejecutar()">ENVIAR SOLUCIÓN</button>
+
+    <div class="resultado" id="resultado">Resultado aparecerá aquí...</div>
+  </div>
+
+</div>
+
+<!-- MODAL DE ÉXITO -->
+<div id="modal-exito" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+">
+  <div style="
+    background: #f8e7c5;
+    color: #000;
+    padding: 25px;
+    border: 4px solid #3b0c0c;
+    width: 350px;
+    text-align: center;
+    font-family: 'Press Start 2P';
+  ">
+    <h3 style="margin-bottom: 15px;">¡Reto superado!</h3>
+    <p>Todos los tests pasaron correctamente.</p>
+
+    <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+      <button onclick="cerrarModal()" style="
+        background: #3ca0ff;
+        border: 3px solid #1d4c73;
+        padding: 10px;
+        cursor: pointer;
+        font-family: 'Press Start 2P';
+      ">CERRAR</button>
+
+      <button id="btn-siguiente-reto" style="
+        display: none;
+        background: #7aff8a;
+        border: 3px solid #2d5c2f;
+        padding: 10px;
+        cursor: pointer;
+        font-family: 'Press Start 2P';
+      ">SIGUIENTE RETO →</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div id="modal-login" class="modal-login"></div>
+
+<!-- JS GENERALES -->
+<script src="../js/retosJS/retoBase.js"></script>
+<script src="../js/retosJS/login.js"></script>
+<script src="../js/retosJS/puntos.js"></script>
+
+<!-- CONFIG DEL RETO -->
+<script src="../js/retosJS/configRetos/reto5.js"></script>
+
+<!-- EDITOR -->
+<script>
+require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs' } });
+
+let editor;
+
+require(["vs/editor/editor.main"], function () {
+
+  editor = monaco.editor.create(document.getElementById("editor"), {
+    value: `// Lista que debes procesar 👇
+const numeros = [3, 5, 3, 2, 8, 5, 9];
+
+function resolver(lista) {
+  // tu código...
+  return ;
+}
+`,
+    language: "javascript",
+    theme: "vs-dark",
+    fontSize: 12,
+    minimap: { enabled: false },
+    automaticLayout: true
+  });
+
+});
+</script>
+
+</body>
+</html>
