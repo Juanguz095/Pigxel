@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GranjaChanchito</title>
+  <title>Pigxel Studio</title>
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/modalLogin.css">
@@ -147,7 +147,7 @@ document.getElementById("cuadricula-retos").innerHTML =
   retos.map(r => `
     <a href="retos/reto${r.id}.html" class="tarjeta">
       <span class="etiqueta ${r.nivel.toLowerCase()}">${r.nivel}</span>
-      <div class="imagen" style="background-image: url('reto${r.id}.png')"></div>
+      <div class="imagen" style="background-image: url('img/reto${r.id}.png')"></div>
       <span class="numero">${r.id}</span>
     </a>
   `).join("");

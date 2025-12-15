@@ -814,8 +814,7 @@ document.querySelector('.trans-js')
         keyframes: {
   titulo: "Animaciones con @keyframes",
 
-  texto: `
-Las animaciones con @keyframes son mucho más potentes que las transiciones.
+  texto: `Las animaciones con @keyframes son mucho más potentes que las transiciones.
 Te permiten definir una línea de tiempo completa, con varios pasos y
 cambios progresivos en el estilo.
 
@@ -855,8 +854,7 @@ Ideal para:
 }
 `,
 
-  texto2: `
-2. Animación de rebote (bounce)
+  texto2: `2. Animación de rebote (bounce)
 
 Esta animación imita un movimiento elástico.
 Es útil para llamar la atención sin ser molesto.
@@ -882,8 +880,7 @@ Usos recomendados:
 }
 `,
 
-  texto3: `
-3. Animación de giro infinito (spin)
+  texto3: `3. Animación de giro infinito (spin)
 
 Un clásico indispensable.
 Perfecta para loaders, iconos, engranajes o cualquier cosa que gire.
@@ -909,8 +906,7 @@ Detalles:
 }
 `,
 
-  texto4: `
-4. Animación compleja con múltiples etapas
+  texto4: `4. Animación compleja con múltiples etapas
 
 Aquí combinamos desplazamiento, opacidad y rotación.
 Esto demuestra el verdadero poder de @keyframes.
@@ -1011,8 +1007,7 @@ anime({
         svg: {
   titulo: "Gráficos SVG (Vectoriales Escalables)",
 
-  texto: `
-Los SVG son gráficos vectoriales que pueden escalarse infinitamente sin perder calidad.
+  texto: `Los SVG son gráficos vectoriales que pueden escalarse infinitamente sin perder calidad.
 
 A diferencia de las imágenes PNG o JPG:
 • No se pixelan  
@@ -1048,8 +1043,7 @@ Un SVG simple puede contener figuras como:
 </svg>
 `,
 
-  texto2: `
-2. SVG con estilos y colores desde CSS
+  texto2: `2. SVG con estilos y colores desde CSS
 
 Una de las ventajas del SVG es poder darle estilo igual que a cualquier elemento HTML.
 Puedes cambiar colores, bordes, incluso animarlos.
@@ -1075,8 +1069,7 @@ svg .rect:hover {
 </svg>
 `,
 
-  texto3: `
-3. Paths y formas complejas
+  texto3: `3. Paths y formas complejas
 
 El verdadero poder del SVG está en los "paths".
 Con ellos puedes dibujar lo que quieras:
@@ -1100,8 +1093,7 @@ Un path se define con coordenadas, pero puedes usar cualquier editor vectorial (
 </svg>
 `,
 
-  texto4: `
-4. Diferencia real entre PNG/JPG y SVG al escalar
+  texto4: `4. Diferencia real entre PNG/JPG y SVG al escalar
 
 Para demostrarlo haremos un mini-experimento con JavaScript:
 
@@ -1215,8 +1207,7 @@ Controles más usados:
 </audio>
 `,
 
-  texto2: `
-2. Control avanzado del audio con JavaScript
+  texto2: `2. Control avanzado del audio con JavaScript
 
 Puedes manejar el audio desde código:
 • Reproducir
@@ -1250,8 +1241,7 @@ audio.addEventListener("ended", () => {
         video: {
   titulo: "Video HTML",
 
-  texto: `
-1. Video HTML: integración de clips y contenido multimedia
+  texto: `1. Video HTML: integración de clips y contenido multimedia
 
 El elemento video es ideal para:
 • Tutoriales
@@ -1283,8 +1273,7 @@ Atributos más importantes:
 </video>
 `,
 
-  texto2: `
-2. Video interactivo con JavaScript
+  texto2: `2. Video interactivo con JavaScript
 
 Puedes controlar un video igual que un audio:
 

@@ -8,7 +8,13 @@ function mostrarModal(id) {
     btnSig.style.display = "block";
     btnSig.onclick = () => irAlSiguienteReto(id);
   }
-}
+  const audio = document.getElementById("sonido-exito");
+  if (audio) {
+    audio.currentTime = 0; // reinicia por si ya sonó antes
+    audio.play().catch(() => {
+      // evita errores si el navegador bloquea autoplay
+    });
+}}
 
 
 function cerrarModal() {

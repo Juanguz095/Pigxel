@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre Nosotros – GranjaChanchito</title>
+  <title>Sobre Nosotros</title>
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/modalLogin.css">
@@ -151,214 +151,207 @@
 }
 
   </style>
+  <style>
+    .slider-equipo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .slider-btn {
+      background: #ea638c;
+      border: 3px solid #000;
+      padding: 10px;
+      cursor: pointer;
+      font-family: 'Press Start 2P';
+    }
+
+    .slider-viewport {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 25px;
+      transition: transform 0.4s ease;
+    }
+
+    .modal-login textarea {
+      background: #f8e7c5;
+      border: 3px solid #000;
+      font-family: 'Press Start 2P';
+      padding: 8px;
+      width: 100%;
+      resize: none;
+    }
+  </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="barra-superior">
   <nav class="menu-izquierda">
     <a id="header-puntos">PUNTOS: 0</a>
     <a href="aprender/aprende.html">APRENDER</a>
-    <a style="text-align: center;">LOGROS</a>
+    <a>LOGROS</a>
   </nav>
-  <a href="index.html"><div class="menu-logo">🐷 Pigxel Studio</div></a>
+
+  <a href="index.html">
+    <div class="menu-logo">🐷 Pigxel Studio</div>
+  </a>
+
   <nav class="menu-derecha">
-    <a href="sobreNosotros.html"><div class="selector activo">SOBRE NOSOTROS</div></a>
+    <a href="sobreNosotros.html">
+      <div class="selector activo">SOBRE NOSOTROS</div>
+    </a>
     <button class="btn-sesion" id="btn-usuario">INICIAR SESIÓN</button>
   </nav>
 </header>
 
-
-
+<!-- ================= HERO ================= -->
 <section class="hero">
   <h1>SOBRE NOSOTROS</h1>
   <p>Conoce al equipo detrás de la granja 🐷🌾</p>
 </section>
 
-
-
+<!-- ================= CONTENIDO ================= -->
 <section class="contenedor-info">
 
   <div class="bloque">
     <h2>🐷 Nuestra Historia</h2>
     <p>
-      GranjaChanchito nació como una pequeña idea entre amigos apasionados por 
-      la programación, el diseño retro y el aprendizaje divertido.
-      Queríamos crear un espacio donde las personas pudieran mejorar sus habilidades 
-      mediante retos, humor, y estética pixel.
+      Pigxel Studio nació de la pasión por el código, el diseño retro
+      y el aprendizaje gamificado.
     </p>
   </div>
 
   <div class="bloque">
     <h2>🌽 Nuestra Misión</h2>
     <p>
-      Inspirar a nuevos programadores a aprender jugando, explorar, fallar,
-      reintentar y crecer, igual que un chanchito aprendiendo a cultivar su propia granja.
+      Enseñar programación de forma divertida,
+      accesible y visual.
     </p>
   </div>
 
   <div class="bloque">
     <h2>🌾 Nuestra Visión</h2>
     <p>
-      Convertirnos en una plataforma educativa completa donde la gamificación
-      y el estilo retro se unan para ofrecer la mejor experiencia de aprendizaje digital.
+      Convertirnos en una plataforma educativa
+      retro-interactiva líder.
     </p>
   </div>
 
+  <!-- ================= SLIDER EQUIPO ================= -->
   <div class="bloque">
     <h2>🐮 El Equipo</h2>
 
-    <div class="equipo">
-      <div class="miembro">
-        <img src="https://i.imgur.com/Np8I8Dp.png" alt="">
-        <h3>Juan — Fundador</h3>
-        <p>Programación, diseño y estrategia de la granja.</p>
+    <div class="slider-equipo">
+      <button class="slider-btn prev">◀</button>
+
+      <div class="slider-viewport">
+        <div class="slider-track">
+
+          <div class="miembro">
+            <img src="https://i.imgur.com/Np8I8Dp.png">
+            <h3>Juan — Fundador</h3>
+            <p>Programación y estrategia</p>
+          </div>
+
+          <div class="miembro">
+            <img src="https://i.imgur.com/Np8I8Dp.png">
+            <h3>Ale — Diseño</h3>
+            <p>Pixel art y UI</p>
+          </div>
+
+          <div class="miembro">
+            <img src="https://i.imgur.com/Np8I8Dp.png">
+            <h3>Marco — Dev</h3>
+            <p>Retos y lógica</p>
+          </div>
+
+          <div class="miembro">
+            <img src="https://i.imgur.com/Np8I8Dp.png">
+            <h3>Lucía — Escritora</h3>
+            <p>Narrativa y textos</p>
+          </div>
+
+        </div>
       </div>
 
-      <div class="miembro">
-        <img src="https://i.imgur.com/Np8I8Dp.png" alt="">
-        <h3>Ale — Diseñadora</h3>
-        <p>Pixel art, interfaz retro y estética arcade.</p>
-      </div>
-
-      <div class="miembro">
-        <img src="https://i.imgur.com/Np8I8Dp.png" alt="">
-        <h3>Marco — Dev</h3>
-        <p>Desarrollo de retos y sistemas internos.</p>
-      </div>
-
-      <div class="miembro">
-        <img src="https://i.imgur.com/Np8I8Dp.png" alt="">
-        <h3>Lucía — Escritora</h3>
-        <p>Textos, diálogos y narrativa de la granja.</p>
-      </div>
-    </div>
-
-  </div>
-
-    <div class="bloque">
-    <h2>📍 Nuestra Ubicación</h2>
-    <p>
-      Aquí es donde nace la magia de Pigxel Studio. Estamos ubicados en el 
-      Instituto de Educación Superior Tecnológico Público <b>Simón Bolívar</b>,
-      en Bellavista, Callao — Perú.
-    </p>
-
-    <div class="mapa-pigxel">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1242.2054587205868!2d-77.1246867!3d-12.0655632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cf5f26d8e97f%3A0x3d53ea50ccaa43d!2sInstituto%20de%20Educaci%C3%B3n%20Superior%20Tecnol%C3%B3gico%20P%C3%BAblico%20%E2%80%9CSim%C3%B3n%20Bol%C3%ADvar%E2%80%9D!5e1!3m2!1ses-419!2spe!4v1707270011239"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <button class="slider-btn next">▶</button>
     </div>
   </div>
 
+  <!-- ================= CONTACTO ================= -->
+  <div class="bloque" style="text-align:center;">
+    <h2>📨 Contáctanos</h2>
+    <p>¿Tienes una idea o pregunta?</p>
 
-  <footer class="footerPigxel">
-  <div class="contenidoPie animEntrada">
-
-    <div class="seccionPie">
-      <h3>Sobre Pigxel</h3>
-      <p>
-        Somos un estudio especializado en animación web y diseño interactivo.
-        Transformamos ideas en experiencias digitales memorables.
-      </p>
-
-      <div class="enlacesSociales">
-        <a href="#" class="iconoSocial" title="Facebook">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12..."/>
-          </svg>
-        </a>
-        <a href="#" class="iconoSocial" title="Twitter">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M23.953 4.57a10 10 0 01-2.825.775..."/>
-          </svg>
-        </a>
-        <a href="#" class="iconoSocial" title="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C8.74 0 8.333.015..."/>
-          </svg>
-        </a>
-        <a href="#" class="iconoSocial" title="GitHub">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373..."/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="seccionPie">
-      <h3>Servicios</h3>
-      <ul>
-        <li><a href="#animacionCss">Animación CSS</a></li>
-        <li><a href="#animacionJs">Animación JavaScript</a></li>
-        <li><a href="#gsap">Animaciones GSAP</a></li>
-        <li><a href="#svg">Animación SVG</a></li>
-        <li><a href="#consultoria">Consultoría Web</a></li>
-      </ul>
-    </div>
-
-    <div class="seccionPie">
-      <h3>Boletín</h3>
-      <p>Suscríbete para recibir consejos de animación y novedades del estudio.</p>
-
-      <form class="formularioBoletin" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte! 🎉');">
-        <input type="email" class="inputBoletin" placeholder="tu@correo.com" required>
-        <button type="submit" class="botonBoletin">Suscribir</button>
-      </form>
-    </div>
-
+    <button class="btn-login" onclick="abrirContacto()">
+      Abrir formulario
+    </button>
   </div>
 
-  <div class="pieInferior animEntradaRetraso">
-    <div class="pieInferiorIzquierda">
-      <span class="logoPie">🐽 PIGXEL</span>
-      <span class="derechosAutor">© 2025 Pigxel Studio. Todos los derechos reservados.</span>
-    </div>
+</section>
 
-    <div class="pieInferiorDerecha">
-      <a href="#privacidad">Privacidad</a>
-      <a href="#terminos">Términos</a>
-      <a href="#contacto">Contacto</a>
-    </div>
+<!-- ================= MODAL CONTACTO ================= -->
+<div id="modal-contacto" class="modal-login" style="display:none;">
+  <div class="login-box">
+    <div class="cerrar" onclick="cerrarContacto()">✖</div>
+
+    <h2>Contacto Pigxel</h2>
+
+    <input type="text" placeholder="Nombre">
+    <input type="email" placeholder="Correo">
+    <textarea placeholder="Mensaje"></textarea>
+
+    <button class="btn-login" onclick="enviarContacto()">
+      Enviar
+    </button>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footerPigxel">
+  <div class="pieInferior">
+    <span class="logoPie">🐽 PIGXEL</span>
+    <span>© 2025 Pigxel Studio</span>
   </div>
 </footer>
 
-</section>
-<div id="modal-login" class="modal-login">
-  <div class="login-box">
-
-    <div class="cerrar" id="cerrar-login">✖</div>
-
-    <h2 id="titulo-login">Iniciar Sesión</h2>
-
-    <div id="form-login">
-      <input type="text" id="login-user" placeholder="Usuario">
-      <input type="password" id="login-pass" placeholder="Contraseña">
-
-      <button class="btn-login" id="btn-login">Entrar</button>
-
-      <p class="cambio" id="ir-registro">
-        ¿No tienes cuenta? Regístrate
-      </p>
-    </div>
-
-    <div id="form-registro" style="display:none;">
-      <input type="text" id="reg-user" placeholder="Nuevo usuario">
-      <input type="password" id="reg-pass" placeholder="Nueva contraseña">
-
-      <button class="btn-login" id="btn-registrar">Crear Cuenta</button>
-
-      <p class="cambio" id="ir-login">
-        ¿Ya tienes cuenta? Inicia Sesión
-      </p>
-    </div>
-
-  </div>
-</div>
+<!-- ================= SCRIPTS ================= -->
 <script src="js/retosJS/login.js"></script>
 <script src="js/retosJS/puntos.js"></script>
+
+<script>
+  let indexEquipo = 0;
+  const track = document.querySelector(".slider-track");
+  const miembros = document.querySelectorAll(".slider-track .miembro");
+
+  document.querySelector(".next").onclick = () => {
+    indexEquipo = Math.min(indexEquipo + 1, miembros.length - 1);
+    track.style.transform = `translateX(-${indexEquipo * 260}px)`;
+  };
+
+  document.querySelector(".prev").onclick = () => {
+    indexEquipo = Math.max(indexEquipo - 1, 0);
+    track.style.transform = `translateX(-${indexEquipo * 260}px)`;
+  };
+
+  function abrirContacto() {
+    document.getElementById("modal-contacto").style.display = "flex";
+  }
+
+  function cerrarContacto() {
+    document.getElementById("modal-contacto").style.display = "none";
+  }
+
+  function enviarContacto() {
+    alert("🐷 ¡Mensaje enviado!");
+    cerrarContacto();
+  }
+</script>
+
 </body>
-</html>
