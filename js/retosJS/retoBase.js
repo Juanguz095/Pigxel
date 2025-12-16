@@ -10,9 +10,8 @@ function mostrarModal(id) {
   }
   const audio = document.getElementById("sonido-exito");
   if (audio) {
-    audio.currentTime = 0; // reinicia por si ya sonó antes
+    audio.currentTime = 0; 
     audio.play().catch(() => {
-      // evita errores si el navegador bloquea autoplay
     });
 }}
 
@@ -67,21 +66,15 @@ Estado: ${ok ? "✔ APROBADO" : "✘ FALLÓ"}
 
     if (!todosBien) return;
 
-    // Mostrar modal éxito
     mostrarModal(id);
 
-
-    // SI NO ESTÁ LOGUEADO → no dar puntos
     if (!usuarioEstaLogueado()) return;
 
-    // Si ya lo completó → no volver a dar puntos
     if (localStorage.getItem("reto" + id) === "completado") return;
 
-    // Sumar puntos
     const nuevos = obtenerPuntos() + puntosPorNivel(dificultad);
     guardarPuntos(nuevos);
 
-    // marcar completado
     localStorage.setItem("reto" + id, "completado");
 
     actualizarHeaderPuntos();
@@ -94,7 +87,6 @@ function irAlSiguienteReto(actual) {
   const siguiente = Number(actual) + 1;
   const url = `reto${siguiente}.html`;
 
-  // validar si existe
   fetch(url)
     .then(res => {
       if (res.ok) {

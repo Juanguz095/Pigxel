@@ -9,10 +9,8 @@
   <link rel="stylesheet" href="../css/aprender.css">
   <link rel="stylesheet" href="../css/modalLogin.css">
   <link rel="stylesheet" href="../css/footer.css">
-    <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-  <!-- Anime.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
   <script src="../js/demos.js"></script>
@@ -32,7 +30,6 @@
   </nav>
 </header>
 
-<!-- MENU SUPERIOR DE CATEGORÍAS -->
 <div class="menu-superior">
   <div class="categoria activa" onclick="mostrarSubtemas('js', event)">JavaScript</div>
   <div class="categoria" onclick="mostrarSubtemas('css', event)">CSS</div>
@@ -43,10 +40,8 @@
 
 <section class="contenedor-aprender">
 
-  <!-- SUBTEMAS -->
   <aside id="subtemas" class="subtemas"></aside>
 
-  <!-- CONTENIDO -->
   <article id="contenido" class="contenido">
     <h2>Bienvenido 🐷✨</h2>
     <p>Selecciona una categoría arriba para empezar a aprender.</p>
@@ -87,6 +82,76 @@
 
   </div>
 </div>
+<footer class="footerPigxel">
+  <div class="contenidoPie animEntrada">
+
+    <div class="seccionPie">
+      <h3>Sobre Pigxel</h3>
+      <p>
+        Somos un estudio especializado en animación web y diseño interactivo.
+        Transformamos ideas en experiencias digitales memorables.
+      </p>
+
+      <div class="enlacesSociales">
+        <a href="#" class="iconoSocial" title="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12..."/>
+          </svg>
+        </a>
+        <a href="#" class="iconoSocial" title="Twitter">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775..."/>
+          </svg>
+        </a>
+        <a href="#" class="iconoSocial" title="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C8.74 0 8.333.015..."/>
+          </svg>
+        </a>
+        <a href="#" class="iconoSocial" title="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373..."/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="seccionPie">
+      <h3>Servicios</h3>
+      <ul>
+        <li><a href="#animacionCss">Animación CSS</a></li>
+        <li><a href="#animacionJs">Animación JavaScript</a></li>
+        <li><a href="#gsap">Animaciones GSAP</a></li>
+        <li><a href="#svg">Animación SVG</a></li>
+        <li><a href="#consultoria">Consultoría Web</a></li>
+      </ul>
+    </div>
+
+    <div class="seccionPie">
+      <h3>Boletín</h3>
+      <p>Suscríbete para recibir consejos de animación y novedades del estudio.</p>
+
+      <form class="formularioBoletin" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte! 🎉');">
+        <input type="email" class="inputBoletin" placeholder="tu@correo.com" required>
+        <button type="submit" class="botonBoletin">Suscribir</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="pieInferior animEntradaRetraso">
+    <div class="pieInferiorIzquierda">
+      <span class="logoPie">🐽 PIGXEL</span>
+      <span class="derechosAutor">© 2025 Pigxel Studio. Todos los derechos reservados.</span>
+    </div>
+
+    <div class="pieInferiorDerecha">
+      <a href="#privacidad">Privacidad</a>
+      <a href="#terminos">Términos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</footer>
 <script src="../js/aprenderJS/contenidoData.js"></script>
 <script src="../js/aprenderJS/subtemas.js"></script>
 <script src="../js/aprenderJS/animaciones.js"></script>

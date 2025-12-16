@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre Nosotros – Pigxel</title>
+
+<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/modalLogin.css">
+
+<style>
+/* ================= CONTENEDOR ================= */
+.contenedor-info {
+  max-width: 900px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+/* ================= BLOQUES ================= */
+.bloque {
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  border: 3px solid #000;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 #000, 6px 6px 0 #ea638c;
+  position: relative;
+}
+
+/* ================= SLIDER ================= */
+.slider-equipo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.slider-btn {
+  background: #ea638c;
+  border: 3px solid #000;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: 'Press Start 2P';
+}
+
+.slider-viewport {
+  width: 260px;
+  overflow: visible; /* clave para hover */
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+
+/* ================= MIEMBRO ================= */
+.miembro {
+  min-width: 260px;
+  background: rgba(255,255,255,0.05);
+  border: 3px solid #000;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 #000, 5px 5px 0 #77b255;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.miembro:hover {
+  transform: scale(1.06) translateY(-6px);
+  filter: brightness(1.1);
+}
+
+.miembro img {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #000;
+  background: #222;
+  border-radius: 4px;
+  image-rendering: pixelated;
+}
+
+.miembro h3 {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.miembro p {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* ================= MODAL CONTACTO ================= */
+.modal-login {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.contacto-box {
+  background: #f8e7c5;
+  border: 4px solid #3b0c0c;
+  padding: 25px;
+  width: 320px;
+  font-family: 'Press Start 2P';
+  animation: pop 0.35s ease;
+}
+
+.contacto-box input,
+.contacto-box textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 3px solid #000;
+  font-family: 'Press Start 2P';
+}
+
+.contacto-box textarea {
+  resize: none;
+  height: 80px;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="barra-superior">
+  <nav class="menu-izquierda">
+    <a id="header-puntos">PUNTOS: 0</a>
+    <a href="aprender/aprende.html">APRENDER</a>
+    <a>LOGROS</a>
+  </nav>
+
+  <a href="index.html">
+    <div class="menu-logo">🐷 Pigxel Studio</div>
+  </a>
+
+  <nav class="menu-derecha">
+    <a href="sobreNosotros.html"><div class="selector activo">SOBRE NOSOTROS</div></a>
+    <button class="btn-sesion">INICIAR SESIÓN</button>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <h1>SOBRE NOSOTROS</h1>
+  <p>El equipo detrás de la granja 🐷</p>
+</section>
+
+<!-- ================= CONTENIDO ================= -->
+<section class="contenedor-info">
+
+<div class="bloque">
+  <h2>🐮 El Equipo</h2>
+
+  <div class="slider-equipo">
+    <button class="slider-btn" id="prev">◀</button>
+
+    <div class="slider-viewport">
+      <div class="slider-track" id="track">
+        <div class="miembro">
+          <img src="https://i.imgur.com/Np8I8Dp.png">
+          <h3>Juan</h3>
+          <p>Fundador & Dev</p>
+        </div>
+
+        <div class="miembro">
+          <img src="https://i.imgur.com/Np8I8Dp.png">
+          <h3>Ale</h3>
+          <p>Diseño Pixel</p>
+        </div>
+
+        <div class="miembro">
+          <img src="https://i.imgur.com/Np8I8Dp.png">
+          <h3>Marco</h3>
+          <p>Retos & Lógica</p>
+        </div>
+
+        <div class="miembro">
+          <img src="https://i.imgur.com/Np8I8Dp.png">
+          <h3>Lucía</h3>
+          <p>Narrativa</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="slider-btn" id="next">▶</button>
+  </div>
+</div>
+
+<div class="bloque" style="text-align:center">
+  <h2>📨 Contáctanos</h2>
+  <button class="btn-login" onclick="abrirContacto()">Abrir formulario</button>
+</div>
+
+</section>
+
+<!-- ================= MODAL CONTACTO ================= -->
+<div class="modal-login" id="modal-contacto">
+  <div class="contacto-box">
+    <div class="cerrar" onclick="cerrarContacto()">✖</div>
+    <h3>Contacto Pigxel</h3>
+    <input type="text" placeholder="Nombre">
+    <input type="email" placeholder="Correo">
+    <textarea placeholder="Mensaje"></textarea>
+    <button class="btn-login" onclick="enviarContacto()">Enviar</button>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footerPigxel">
+  <div class="pieInferior">
+    <span class="logoPie">🐽 PIGXEL</span>
+    <span>© 2025 Pigxel Studio</span>
+  </div>
+</footer>
+
+<!-- ================= JS ================= -->
+<script>
+const track = document.getElementById("track");
+const miembros = document.querySelectorAll(".miembro");
+const ancho = 260;
+let index = 0;
+
+document.getElementById("next").onclick = () => {
+  if (index < miembros.length - 1) {
+    index++;
+    track.style.transform = `translateX(-${index * ancho}px)`;
+  }
+};
+
+document.getElementById("prev").onclick = () => {
+  if (index > 0) {
+    index--;
+    track.style.transform = `translateX(-${index * ancho}px)`;
+  }
+};
+
+function abrirContacto() {
+  document.getElementById("modal-contacto").style.display = "flex";
+}
+
+function cerrarContacto() {
+  document.getElementById("modal-contacto").style.display = "none";
+}
+
+function enviarContacto() {
+  alert("🐷 ¡Mensaje enviado!");
+  cerrarContacto();
+}
+</script>
+
+</body>
+</html>

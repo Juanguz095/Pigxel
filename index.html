@@ -154,7 +154,6 @@ document.getElementById("cuadricula-retos").innerHTML =
 </script>
 
 <script>
-// Cuando cargue la página, marcar los retos completados
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".tarjeta").forEach(t => {
     const id = t.querySelector(".numero").textContent;
@@ -162,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("reto" + id) === "completado") {
       t.classList.add("completado");
       
-      // Agregar check visual
       const check = document.createElement("span");
       check.classList.add("check-retro");
       check.textContent = "✔";
